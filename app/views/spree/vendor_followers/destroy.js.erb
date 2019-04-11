@@ -1,0 +1,21 @@
+<% lang = I18n.locale %>
+<% if @spree_vendor_follower.errors.blank? %>
+	$('#store-'+ "<%= @spree_vendor_follower.store.id %>" + "-follwers-count").html("<%= j render partial: "spree/#{lang.present? ? lang.to_s : DEFAULT_VIEW_LANG}/vendors/follower_section", locals: {store: @spree_vendor_follower.store} %>");
+	$('#user-'+ "<%= @spree_vendor_follower.follower.id %>" + "-store-section").html("<%= j render partial: "spree/#{lang.present? ? lang.to_s : DEFAULT_VIEW_LANG}/account_management/users/stores_section", locals: {stores: @spree_vendor_follower.follower.stores} %>");
+	$('#js-messages').html("<a href='#' class='close' data-dismiss='alert' aria-label='close'>&times;</a><p><%= @spree_vendor_follower.store.name %> is successfully deleted into your store list. </p>")
+	$('#js-messages').addClass("alert-success")
+	$('#js-messages').removeClass('hide alert-danger')
+<% else %>
+	$('#js-messages').html("<a href='#'' class='close' data-dismiss='alert' aria-label='close'>&times;</a><p><%=  @spree_vendor_follower.errors.messages.flatten %></p>")
+	$('#js-messages').addClass("alert-danger")
+	$('#js-messages').removeClass('hide alert-success')
+<% end %>
+
+$('html, body').animate({
+  scrollTop: $("#js-messages").offset().top
+}, 2000);
+
+
+
+
+

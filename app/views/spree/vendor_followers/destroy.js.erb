@@ -14,7 +14,4 @@
 $('html, body').animate({
   scrollTop: $("#js-messages").offset().top
 }, 2000);
-
-setTimeout(function(){
-    window.location.reload(); 
-},3000); 
+$('#store-<%= @spree_vendor_follower.store.id%>-follwers-count').html("<%= j render partial: "spree/#{lang.present? ? lang.to_s : DEFAULT_VIEW_LANG}/vendors/follower_section", locals: {store: @spree_vendor_follower.store} %>");

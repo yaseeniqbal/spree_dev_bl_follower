@@ -6,7 +6,7 @@ require 'spree_bl_follower/version'
 
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
-  s.name        = 'spree_bl_follower'
+  s.name        = 'spree_dev_bl_follower'
   s.version     = SpreeBlFollower.version
   s.summary     = 'Add extension summary here'
   s.description = 'Add (optional) extension description here'
